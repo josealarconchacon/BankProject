@@ -1,53 +1,45 @@
 package com.company;
 
 public class Client {
-    private String firstName;
-    private String lastName;
-    private String birthDay;
-    private String address;
-    private String phoneNumber;
-    private String email;
-    private String ssn;
+    private String FirstName, LastName, Address;
+    private String email, PhoneNumber;
+    private int Ssn;
 
+    public Client() {
+        FirstName = LastName = Address = email = PhoneNumber = "";
+        Ssn = 0;
+    }
+
+    public Client(String DoB, String f_name, String l_name, String address, String phoneNumber, int ssn) {
+        this.FirstName = f_name;
+        this.LastName = l_name;
+        this.Address = address;
+        this.PhoneNumber = phoneNumber;
+        this.Ssn = ssn;
+    }
 
     public String getFirstName() {
-        return firstName;
+        return FirstName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.FirstName = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return LastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getBirthDay() {
-        return birthDay;
-    }
-
-    public void setBirthDay(String birthDay) {
-        this.birthDay = birthDay;
+        this.LastName = lastName;
     }
 
     public String getAddress() {
-        return address;
+        return Address;
     }
 
     public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        this.Address = address;
     }
 
     public String getEmail() {
@@ -58,11 +50,27 @@ public class Client {
         this.email = email;
     }
 
-    public String getSsn() {
-        return ssn;
+    public String getPhoneNumber() {
+        return PhoneNumber;
     }
 
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
+    public void setPhoneNumber(String phoneNumber) {
+        this.PhoneNumber = phoneNumber;
+    }
+
+    public int getSsn() {
+        return Ssn;
+    }
+
+    public void setSsn(int ssn) {
+        this.Ssn = ssn;
+    }
+
+    public boolean equals(Client client) {
+        if(super.equals(client) && this.FirstName.equals(client.FirstName) && this.LastName.equals(client.LastName)
+            && this.Address.equals(client.Address) && this.PhoneNumber.equals(client.PhoneNumber) && this.Ssn == client.Ssn) {
+            return true;
+        }
+        return false;
     }
 }
