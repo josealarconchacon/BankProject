@@ -32,7 +32,7 @@ public class Date {
 
     // constructor that accepts a string in the form of mm/dd/yy or yyyy-mm-dd
     public Date(String d) {
-        if(d.charAt(2) == '/') {
+        if(d.contains("/")) {
             // Date format mm/dd/yyyy split the string at /
             String[] strSplit = d.split("/");
             if(strSplit.length != 3) {
@@ -42,7 +42,7 @@ public class Date {
             this.setMonth(Integer.parseInt(strSplit[0]));
             //strSplit[0] would be day
             this.setDay(Integer.parseInt(strSplit[1])); // converts a string into an integer
-        } else if(d.charAt(2) == '-') {
+        } else if(d.contains("-")) {
             // Date format yyyy-mm-dd split the string at -
             String[] strSplit = d.split("-");
             if(strSplit.length != 3) {
