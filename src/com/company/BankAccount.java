@@ -19,26 +19,28 @@ import java.util.Vector;
  */
 
 public class BankAccount extends Client{
-    private double Balance, InterestRate;
-    private int LastDateInterestWasPayed, DayAccountWasOped;
-    private Client client;
-    private Vector<Client>ClientVector;
+    private double Balance;
+    private double InterestRate;
+    private Date LastDateInterestWasPayed;
+    private Date DayAccountWasOped;
+    private Client PrimaryMember;
+    private Vector<Client> SecondaryHolders;
 
-    public BankAccount() throws Exception{
-        this(0.00, 0.00,2/22/2222, 1/11/1111);
-        System.out.println("Empty Constructor called.");
-    }
-
-    public BankAccount(double balance, double interestRate, int lastDateInterestWasPayed, int dayAccountWasOped) throws Exception{
+    public BankAccount(double balance, double interestRate, Date lastDateInterestWasPayed, Date dayAccountWasOped) throws Exception{
         this.Balance = balance;
         this.InterestRate = interestRate;
         this.LastDateInterestWasPayed = lastDateInterestWasPayed;
         this.DayAccountWasOped = dayAccountWasOped;
     }
+
+    public BankAccount() {
+
+    }
+
     public String toString() {
         return "Balance: " + this.Balance + " InterestRate: " + this.InterestRate +
                 " LastDateInterestWasPayed: " + this.LastDateInterestWasPayed +
-                " DayAccountWasOped: " + this.DayAccountWasOped + " client: " + this.client;
+                " DayAccountWasOped: " + this.DayAccountWasOped + " client: " + this.PrimaryMember.getFirstName();
     }
 
     // payInterest that computes the interest to be paid starting at the last date to today
@@ -69,26 +71,14 @@ public class BankAccount extends Client{
         }
     }
 
-    // setPrimaryHolder(Client C) changes primary holder to new Client.
-    public void setPrimaryHolder(Client client) {
-//        Client newClient = new Client();
-//        newClient.setFirstName(this.getFirstName() + client.getFirstName());
-//        newClient.setLastName(this.getLastName() + client.getLastName());
-//        newClient.setEmail(this.getEmail() + client.getEmail());
-//        newClient.setAddress(this.getAddress() + client.getAddress());
-//        newClient.setPhoneNumber(this.getPhoneNumber() + client.getPhoneNumber());
-//        newClient.setSSN(this.getSSN() + client.getSSN());
-//        return;
-    }
 
     // getter and setters
-
     public double getBalance() {
         return Balance;
     }
 
     public void setBalance(double balance) {
-        Balance = balance;
+        this.Balance = balance;
     }
 
     public double getInterestRate() {
@@ -96,30 +86,38 @@ public class BankAccount extends Client{
     }
 
     public void setInterestRate(double interestRate) {
-        InterestRate = interestRate;
+        this.InterestRate = interestRate;
     }
 
-    public int getLastDateInterestWasPayed() {
+    public Date getLastDateInterestWasPayed() {
         return LastDateInterestWasPayed;
     }
 
-    public void setLastDateInterestWasPayed(int lastDateInterestWasPayed) {
-        LastDateInterestWasPayed = lastDateInterestWasPayed;
+    public void setLastDateInterestWasPayed(Date lastDateInterestWasPayed) {
+        this.LastDateInterestWasPayed = lastDateInterestWasPayed;
     }
 
-    public int getDayAccountWasOped() {
+    public Date getDayAccountWasOped() {
         return DayAccountWasOped;
     }
 
-    public void setDayAccountWasOped(int dayAccountWasOped) {
-        DayAccountWasOped = dayAccountWasOped;
+    public void setDayAccountWasOped(Date dayAccountWasOped) {
+        this.DayAccountWasOped = dayAccountWasOped;
     }
 
-    public Client getClient() {
-        return client;
+    public Client getPrimaryMember() {
+        return PrimaryMember;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setPrimaryMember(Client primaryMember) {
+        this.PrimaryMember = primaryMember;
+    }
+
+    public Vector<Client> getSecondaryHolders() {
+        return SecondaryHolders;
+    }
+
+    public void setSecondaryHolders(Vector<Client> secondaryHolders) {
+        this.SecondaryHolders = secondaryHolders;
     }
 }
