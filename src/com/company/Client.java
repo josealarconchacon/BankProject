@@ -1,4 +1,19 @@
 package com.company;
+/*
+ * Design a class client, which is a person.
+ * - first name
+ * - last name
+ * - Date of birth
+ * - address
+ * - phone number
+ * - email address
+ * - SSN (to be able to retrieve account holders).
+ * - getters and setters for all of them *
+ *
+ */
+
+
+import javax.swing.*;
 
 public class Client {
     private String FirstName, LastName, Address, email;
@@ -25,6 +40,11 @@ public class Client {
         return false;
     }
 
+    public String toString() {
+        return " FirstName: " + this.FirstName + " LastName: " + this.LastName +
+                " Address: " + this.Address + " Email: " + this.email +
+                " SSN: " + this.SSN + " PhoneNumber: " + this.PhoneNumber;
+    }
     // getters and setters
     public String getFirstName() {
         return FirstName;
