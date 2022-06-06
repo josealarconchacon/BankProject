@@ -1,29 +1,31 @@
 package com.company;
+import java.util.Vector;
 
 /*
  * Design a class that serves as records of bank accounts. Member variables are
- * - balance
- * - interest rate
- * - last date interest was paid.
- * - date of opening the account
+     * - balance
+     * - interest rate
+     * - last date interest was paid.
+     * - date of opening the account
  * - primary member client (see Client class)
  * - Vector of secondary holders up to three secondary holders
  * - Methods:
- * - getters and setters fo balance, interest rate, primary holder, ....
- * - payInterest that computes the interest to be paid starting at the last date to today.
- * - deposit(double m) deposits increases balance by m
- * - withdraw(double m) decreases the balance by m or set to 0 if not enough funds.
- * - setPrimaryHolder(Client C) changes primary holder to new Client.
+     * - getters and setters fo balance, interest rate, primary holder, ....
+     * - payInterest that computes the interest to be paid starting at the last date to today.
+     * - deposit(double m) deposits increases balance by m
+     * - withdraw(double m) decreases the balance by m or set to 0 if not enough funds.
+     * - setPrimaryHolder(Client C) changes primary holder to new Client.
  *
  */
 
-public class BankAccount {
+public class BankAccount extends Client{
     private double Balance, InterestRate;
     private int LastDateInterestWasPayed, DayAccountWasOped;
     private Client client;
+    private Vector<Client>ClientVector;
 
     public BankAccount() throws Exception{
-        this(0.00, 0.00,0/00/0000, 0/00/000);
+        this(0.00, 0.00,2/22/2222, 1/11/1111);
         System.out.println("Empty Constructor called.");
     }
 
@@ -33,9 +35,16 @@ public class BankAccount {
         this.LastDateInterestWasPayed = lastDateInterestWasPayed;
         this.DayAccountWasOped = dayAccountWasOped;
     }
+    public String toString() {
+        return "Balance: " + this.Balance + " InterestRate: " + this.InterestRate +
+                " LastDateInterestWasPayed: " + this.LastDateInterestWasPayed +
+                " DayAccountWasOped: " + this.DayAccountWasOped + " client: " + this.client;
+    }
 
     // payInterest that computes the interest to be paid starting at the last date to today
-
+    public void payInterest(double payIR) {
+        Balance += (Balance * payIR);
+    }
 
     // deposit(double depositAmount) deposits increases balance by depositAmount
     public void deposit(double depositAmount) throws Exception {
@@ -62,7 +71,14 @@ public class BankAccount {
 
     // setPrimaryHolder(Client C) changes primary holder to new Client.
     public void setPrimaryHolder(Client client) {
-
+//        Client newClient = new Client();
+//        newClient.setFirstName(this.getFirstName() + client.getFirstName());
+//        newClient.setLastName(this.getLastName() + client.getLastName());
+//        newClient.setEmail(this.getEmail() + client.getEmail());
+//        newClient.setAddress(this.getAddress() + client.getAddress());
+//        newClient.setPhoneNumber(this.getPhoneNumber() + client.getPhoneNumber());
+//        newClient.setSSN(this.getSSN() + client.getSSN());
+//        return;
     }
 
     // getter and setters
