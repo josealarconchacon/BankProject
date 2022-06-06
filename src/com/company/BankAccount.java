@@ -22,12 +22,12 @@ public class BankAccount {
     private int LastDateInterestWasPayed, DayAccountWasOped;
     private Client client;
 
-    public BankAccount() {
+    public BankAccount() throws Exception{
         this(0.00, 0.00,0/00/0000, 0/00/000);
         System.out.println("Empty Constructor called.");
     }
 
-    public BankAccount(double balance, double interestRate, int lastDateInterestWasPayed, int dayAccountWasOped) {
+    public BankAccount(double balance, double interestRate, int lastDateInterestWasPayed, int dayAccountWasOped) throws Exception{
         this.Balance = balance;
         this.InterestRate = interestRate;
         this.LastDateInterestWasPayed = lastDateInterestWasPayed;
@@ -38,17 +38,22 @@ public class BankAccount {
 
 
     // deposit(double depositAmount) deposits increases balance by depositAmount
-    public void deposit(double depositAmount) {
-        this.Balance += depositAmount;
-        System.out.println("Deposit of " + depositAmount + " was made, New balance is " + this.Balance);
+    public void deposit(double depositAmount) throws Exception {
+        if(depositAmount > 0) {
+            this.Balance += depositAmount;
+            System.out.println("Deposit of " + depositAmount + " was made, New balance is " + this.Balance);
+        } else {
+            throw new Exception("Deposit Amount should be grather than zero");
+        }
     }
 
 
     // withdraw(double withdrawAmount) decreases the balance by withdrawAmount or set to 0 if not enough funds.
-    public void withdraw(double withdrawAmount) {
+    public void withdraw(double withdrawAmount) throws Exception{
         // check first if there is enough balance
         if(this.Balance - withdrawAmount <= 0) {
             System.out.println("Only " + this.Balance + " available in your account. Withdraw can't be processed");
+            throw new Exception("No enough balance in your account");
         } else {
             this.Balance -= withdrawAmount;
             System.out.println("Withdraw of " + withdrawAmount + " was processed. Remaining balance is " + this.Balance);
