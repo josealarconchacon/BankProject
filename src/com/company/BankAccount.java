@@ -24,7 +24,6 @@ public class BankAccount extends Client{
     private Date LastDateInterestWasPayed;
     private Date DayAccountWasOped;
     private Client PrimaryMember;
-    private Vector<Client> SecondaryHolders = new Vector<Client>(3);
 
     public BankAccount(double balance, double interestRate, Date lastDateInterestWasPayed, Date dayAccountWasOped) throws Exception{
         this.Balance = balance;
@@ -75,11 +74,6 @@ public class BankAccount extends Client{
         }
     }
 
-    public boolean setPrimaryHolder(Client client) {
-        return this.SecondaryHolders.add(client);
-    }
-
-
     // getter and setters
     public double getBalance() {
         return Balance;
@@ -119,13 +113,5 @@ public class BankAccount extends Client{
 
     public void setPrimaryMember(Client primaryMember) {
         this.PrimaryMember = primaryMember;
-    }
-
-    public Vector<Client> getSecondaryHolders() {
-        return SecondaryHolders;
-    }
-
-    public void setSecondaryHolders(Vector<Client> secondaryHolders) {
-        this.SecondaryHolders = secondaryHolders;
     }
 }

@@ -1,17 +1,6 @@
 package com.company;
 import java.util.Vector;
 
-/*
- * Design a class bank that manages a vector of bank accounts
- * - Vector of bankAccounts
- * - Account number that changes each time an account is created
-  methods to
- * - create a new account and add it to the vector
- * - retrieve an existing account based on SSN
- * - retrieve account based on first and last name
- * - modify an account with new info, except the account number
- * - delete an account based on SSN or first and last name.
- */
 public class Bank extends Client {
     // BankAccount Vector
     private Vector<BankAccount>BankAccountVector = new Vector<BankAccount>();
@@ -49,11 +38,6 @@ public class Bank extends Client {
         }
         return null;
     }
-
-    // modify an account with new info, except the account number
-
-
-    // delete an account based on SSN or first and last name.
     public void deleteAccount(int ssn) {
     }
 }

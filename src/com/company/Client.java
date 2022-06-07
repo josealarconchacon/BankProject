@@ -1,17 +1,4 @@
 package com.company;
-/*
- * Design a class client, which is a person.
- * - first name
- * - last name
- * - Date of birth
- * - address
- * - phone number
- * - email address
- * - SSN (to be able to retrieve account holders).
- * - getters and setters for all of them *
- *
- */
-
 
 public class Client {
     private String FirstName, LastName, Address, email, PhoneNumber, DateOfBirth;
@@ -90,7 +77,6 @@ public class Client {
     public Date getSetDate() {
         return SetDate;
     }
-
     public void setSetDate(Date setDate) {
         this.SetDate = setDate;
     }
