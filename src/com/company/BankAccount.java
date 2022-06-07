@@ -24,7 +24,7 @@ public class BankAccount extends Client{
     private Date LastDateInterestWasPayed;
     private Date DayAccountWasOped;
     private Client PrimaryMember;
-    private Vector<Client> SecondaryHolders;
+    private Vector<Client> SecondaryHolders = new Vector<Client>(3);
 
     public BankAccount(double balance, double interestRate, Date lastDateInterestWasPayed, Date dayAccountWasOped) throws Exception{
         this.Balance = balance;
@@ -73,6 +73,10 @@ public class BankAccount extends Client{
             this.Balance -= withdrawAmount;
             System.out.println("Withdraw of " + withdrawAmount + " was processed. Remaining balance is " + this.Balance);
         }
+    }
+
+    public boolean setPrimaryHolder(Client client) {
+        return this.SecondaryHolders.add(client);
     }
 
 
