@@ -40,7 +40,7 @@ public class BankAccount extends Client{
     public String toString() {
         return "Balance: " + this.Balance + " InterestRate: " + this.InterestRate +
                 " LastDateInterestWasPayed: " + this.LastDateInterestWasPayed +
-                " DayAccountWasOped: " + this.DayAccountWasOped + " client: " + this.PrimaryMember.getFirstName();
+                " DayAccountWasOped: " + this.DayAccountWasOped + " client: " + this.PrimaryMember;
     }
 
     // payInterest that computes the interest to be paid starting at the last date to today
