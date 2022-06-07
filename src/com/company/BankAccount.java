@@ -44,8 +44,12 @@ public class BankAccount extends Client{
     }
 
     // payInterest that computes the interest to be paid starting at the last date to today
-    public void payInterest(double payIR) {
-        Balance += (Balance * payIR);
+    public void payInterest(double payIR) throws Exception{
+        try {
+            Balance += (Balance * payIR);
+        }catch (Exception e) {
+            System.out.println("interest must be a valid value: " + e.getMessage());
+        }
     }
 
     // deposit(double depositAmount) deposits increases balance by depositAmount
@@ -54,7 +58,7 @@ public class BankAccount extends Client{
             this.Balance += depositAmount;
             System.out.println("Deposit of " + depositAmount + " was made, New balance is " + this.Balance);
         } else {
-            throw new Exception("Deposit Amount should be grather than zero");
+            throw new Exception("Deposit Amount should be greater than zero");
         }
     }
 
