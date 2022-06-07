@@ -1,6 +1,5 @@
 package com.company;
 import java.util.Vector;
-import java.util.Scanner;
 
 /*
  * Design a class bank that manages a vector of bank accounts
@@ -13,32 +12,91 @@ import java.util.Scanner;
  * - modify an account with new info, except the account number
  * - delete an account based on SSN or first and last name.
  */
-public class Bank {
+public class Bank extends Client {
     // BankAccount Vector
-    private Vector<BankAccount>BankAccountVector;
-    private String AccountNumber;
+    private Vector<BankAccount>BankAccountVector = new Vector<BankAccount>();
 
+    public Bank() {
 
-//    create a new account and add it to the vector
-    public void addNewAccount(BankAccount account, int ssn) {
-        account = new BankAccount();
+    }
+    public Bank(Vector<BankAccount> bankAccountVector) {
+        BankAccountVector = bankAccountVector;
+    }
+
+    //    create a new account and add it to the vector
+    public BankAccount addNewAccount(int ssn) {
+        BankAccount account = new BankAccount();
         account.getPrimaryMember().setSSN(ssn);
-        ssn++;
         BankAccountVector.add(account);
+        return account;
     }
 
     // retrieve an existing account based on SSN
-    public BankAccount retrieveExistingAccount(int ssn) {
+    public BankAccount retrieveExistingAccount(int ssn) throws Exception {
+        BankAccount account;
+        try {
+            for(BankAccount bankAccount : BankAccountVector) {
+                if(bankAccount.getPrimaryMember().equals(ssn)) {
+                    account = bankAccount;
+                    System.out.println("Your Bank Account is: " + account.toString());
+                    return account;
+                }
+            }
+        } catch (Exception e) {
+            throw new Exception("Bank account not found " + e.getMessage());
+        } finally {
+            System.out.println("Bank Account Found");
+        }
         return null;
     }
 
     // modify an account with new info, except the account number
-    public void modifyAccount() {
 
-    }
 
     // delete an account based on SSN or first and last name.
-    public void deleteAccount(String lastName) {
-        BankAccountVector.removeIf(selectedAccount -> selectedAccount.getPrimaryMember().getLastName() == lastName);
+    public void deleteAccount(int ssn) {
     }
 }
+
+
+/*
+mport java.util.Vector;
+
+
+
+public class Bank{
+
+
+
+    private Vector<bankAccount> accounts;
+
+    private int ssn = 0;
+
+
+
+    public void addNewAccount(){
+
+        bankAccount account = new bankAccount();
+
+        account.getPrimaryMember().setSsn(ssn);
+
+        ssn++;
+
+        accounts.add(account);
+
+    }
+
+
+
+    public bankAccount getAccount(int ssn) {
+
+        for (bankAccount account : accounts) {
+
+            if (account.getPrimaryMember().getSsn() == ssn) return account;
+
+        }
+
+        return null;
+
+}
+* */
