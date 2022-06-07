@@ -13,24 +13,24 @@ package com.company;
  */
 
 
-import javax.swing.*;
-
 public class Client {
-    private String FirstName, LastName, Address, email, PhoneNumber;
+    private String FirstName, LastName, Address, email, PhoneNumber, DateOfBirth;
     private int SSN;
     private Date SetDate;
 
     public Client() {
-        this("First Name", "Last Name", "129 default st" ,"default@gmail.com", "0000000000", 00000000);
+        this("First Name", "Last Name", "129 default st" ,"default@gmail.com", "0000000000", 00000000, "2/22/2222");
         System.out.println("Empty Constructor called.");
     }
 
-    public Client(String DoB, String f_name, String l_name, String address, String phoneNumber, int ssn) {
+    public Client(String DoB, String f_name, String l_name, String address, String phoneNumber, int ssn, String dateOfBirth) {
         this.FirstName = f_name;
         this.LastName = l_name;
         this.Address = address;
         this.PhoneNumber = phoneNumber;
         this.SSN = ssn;
+        this.DateOfBirth = dateOfBirth;
+
     }
 
     public boolean equals(Client client) {
@@ -42,9 +42,12 @@ public class Client {
     }
 
     public String toString() {
-        return " FirstName: " + this.FirstName + " LastName: " + this.LastName +
-                " Address: " + this.Address + " Email: " + this.email +
-                " SSN: " + this.SSN + " PhoneNumber: " + this.PhoneNumber;
+        return " FirstName: " + this.FirstName + "\n" +
+                " LastName: " + this.LastName +  "\n" +
+                " Address: " + this.Address + "\n" +
+                " Email: " + this.email + "\n" +
+                " SSN: " + this.SSN + "\n" +
+                " PhoneNumber: " + this.PhoneNumber;
     }
     // getters and setters
     public String getFirstName() {
@@ -71,7 +74,7 @@ public class Client {
     public void setEmail(String email) {
         this.email = email;
     }
-    public int getSSN() {
+    public int getSSN(String ssn) {
         return SSN;
     }
     public void setSSN(int SSN) {
