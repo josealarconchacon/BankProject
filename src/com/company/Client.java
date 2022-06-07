@@ -16,15 +16,16 @@ package com.company;
 import javax.swing.*;
 
 public class Client {
-    private String FirstName, LastName, Address, email;
-    private int SSN, PhoneNumber;
+    private String FirstName, LastName, Address, email, PhoneNumber;
+    private int SSN;
+    private Date SetDate;
 
     public Client() {
-        this("First Name", "Last Name", "129 default st" ,"default@gmail.com", 0000000000, 00000000);
+        this("First Name", "Last Name", "129 default st" ,"default@gmail.com", "0000000000", 00000000);
         System.out.println("Empty Constructor called.");
     }
 
-    public Client(String DoB, String f_name, String l_name, String address, int phoneNumber, int ssn) {
+    public Client(String DoB, String f_name, String l_name, String address, String phoneNumber, int ssn) {
         this.FirstName = f_name;
         this.LastName = l_name;
         this.Address = address;
@@ -76,10 +77,18 @@ public class Client {
     public void setSSN(int SSN) {
         this.SSN = SSN;
     }
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return PhoneNumber;
     }
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         PhoneNumber = phoneNumber;
+    }
+
+    public Date getSetDate() {
+        return SetDate;
+    }
+
+    public void setSetDate(Date setDate) {
+        this.SetDate = setDate;
     }
 }
